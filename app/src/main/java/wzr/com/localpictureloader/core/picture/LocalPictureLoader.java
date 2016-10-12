@@ -398,8 +398,10 @@ public class LocalPictureLoader {
                     if (cursor.getCount() > 0 && cursor.moveToFirst()) {
                         String imgPath = cursor.getString(index);
                         Log.d(TAG, "path:" + imgPath);
+                        cursor.close();
                         return new File(imgPath);
                     }
+                    cursor.close();
                 }
             }
         }
@@ -420,8 +422,10 @@ public class LocalPictureLoader {
                     if (cursor.getCount() > 0 && cursor.moveToFirst()) {
                         String imgPath = cursor.getString(index);
                         Log.d(TAG, "path:" + imgPath);
+                        cursor.close();
                         return new File(imgPath);
                     }
+                    cursor.close();
                 }
             }
         }
