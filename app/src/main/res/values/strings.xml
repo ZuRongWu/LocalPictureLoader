@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LocalPictureLoader</string>
+    <!--Global-->
+    <string name="cancel">取消</string>
+    <string name="complete">完成</string>
+    <!--Customer_chooser_activity-->
+    <string name="all_picture">所有图片</string>
 </resources>

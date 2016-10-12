@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--Global-->
+    <color name="white">#ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="text_color_normal">#444</color>
+    <!--Customer_chooser_activity-->
+    <color name="cc_background">#444</color>
+    <color name="cc_background_title_bar">#444</color>
+    <color name="cc_tv_complete_bg">#999</color>
 </resources>
