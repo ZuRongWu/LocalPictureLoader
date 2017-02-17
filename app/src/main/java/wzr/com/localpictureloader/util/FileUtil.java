@@ -629,6 +629,7 @@ public class FileUtil {
 
     /**
      * 从文件中获取图片，调用者可以指定一个期望的宽高以节省所需内存
+     * 使用比例压缩图片，使用采样率压缩或者是质量压缩可以得到更完美的结果码？？？
      *
      * @param file         目标文件
      * @param options      传递给BitmapFactory.decodeFile()函数
