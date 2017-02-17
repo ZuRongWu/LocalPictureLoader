@@ -27,6 +27,7 @@ import java.util.Locale;
  * 默认情况下访问外部存储路径，如果外面存储不可用时都访问内部路径。.../${package_name}/cache/目录
  * 和.../${package_name}/temp/不应该保存会影响程序运行的结果的文件，只能用来保存临时文件
  * 和缓存文件，程序中调用clear()方法将会删除这两个目录下的所以文件
+ *
  * Created by wuzr on 2016/9/23.
  */
 public class FileUtil {
@@ -327,7 +328,7 @@ public class FileUtil {
             return FileUtil.clear(context, false, false, dirs);
         }
 
-        public static File obtainTempFile(Context context, String fileName, boolean preferExternal) {
+        private static File obtainTempFile(Context context, String fileName, boolean preferExternal) {
             File ownerDir = StorageUtil.getOwnerTempDir(context);
             File externalDir = StorageUtil.getExternalTempDir(context);
             return obtainFile(ownerDir, externalDir, fileName, preferExternal);
@@ -415,6 +416,9 @@ public class FileUtil {
 
         public static File obtainImageFile(Context context, String fileDesc, boolean preferExternal) {
             int lastSeparatorIndex = fileDesc.lastIndexOf(File.separator);
+            if(lastSeparatorIndex == -1){
+                return obtainImageFile(context,"",fileDesc,preferExternal);
+            }
             String dirPath = fileDesc.substring(0, lastSeparatorIndex);
             String fileName = fileDesc.substring(lastSeparatorIndex + 1);
             return obtainImageFile(context, dirPath, fileName, preferExternal);
@@ -459,7 +463,7 @@ public class FileUtil {
             return makeDir(ownerDir,externalDir,dirPath,preferExternal);
         }
 
-        public static File findFileDir(Context context,String dirDesc,boolean preferExternal){
+        public static File findFileDir(Context context, String dirDesc, boolean preferExternal){
             if (dirDesc == null || dirDesc.equals("")) {
                 return null;
             }
@@ -507,6 +511,9 @@ public class FileUtil {
 
         public static File obtainNormalFile(Context context, String fileDesc, boolean preferExternal) {
             int lastSeparatorIndex = fileDesc.lastIndexOf(File.separator);
+            if(lastSeparatorIndex == -1){
+                return obtainNormalFile(context,"",fileDesc,preferExternal);
+            }
             String dirPath = fileDesc.substring(0, lastSeparatorIndex);
             String fileName = fileDesc.substring(lastSeparatorIndex + 1);
             return obtainNormalFile(context, dirPath, fileName, preferExternal);

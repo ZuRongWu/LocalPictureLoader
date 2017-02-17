@@ -99,7 +99,7 @@ public class StorageUtil {
         if(!rootDir.exists()){
             try {
                 if(!rootDir.mkdirs()){
-                    Log.w(TAG,"创建文件" + rootDir.getAbsolutePath() + "失败");
+                    Log.w(TAG, "创建文件" + rootDir.getAbsolutePath() + "失败");
                     return null;
                 }
             } catch (Exception e) {
